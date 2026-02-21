@@ -58,4 +58,4 @@ Contributions are welcome! If you have ideas for new features or find any bugs:
 [MIT](LICENSE)
 
 ---
-Built with ❤️ by [ELavarasan (Prince)](https://github.com/follow-prince)
+Built with ❤️ by [ELAVARASAN](https://www.linkedin.com/in/elavarasa003/)
