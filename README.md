@@ -1,3 +1,8 @@
+<p align="center">
+  <img src="https://www.sarvam.ai/assets/og-images/home-og.png" alt="Sarvam AI Banner" width="100%">
+</p>
+
+
 # n8n-nodes-sarvamai
 
 This is an n8n community node that allows you to interact with **Sarvam AI**, India's leading AI company. Build powerful workflows with Indian language support including Translation, Speech-to-Text, LLM Chat, and more.
