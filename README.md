@@ -1,6 +1,4 @@
 # n8n-nodes-sarvamai
-[![Publish to npm (pnpm)](https://github.com/follow-prince/n8n-nodes-sarvamai/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/follow-prince/n8n-nodes-sarvamai/actions/workflows/ci.yml)
-
 
 This is an n8n community node that allows you to interact with **Sarvam AI**, India's leading AI company. Build powerful workflows with Indian language support including Translation, Speech-to-Text, LLM Chat, and more.
 
@@ -25,13 +23,13 @@ To use this node, you can install it via the n8n community nodes interface.
 ### Via n8n UI
 1. Go to **Settings > Community Nodes**.
 2. Click **Install a community node**.
-3. Enter `@follow-prince/n8n-nodes-sarvamai`.
+3. Enter `n8n-nodes-sarvamai`.
 4. Agree to the terms and click **Install**.
 
 ### Via CLI
 If you are running n8n via npm, you can install it manually:
 ```bash
-npm install @follow-prince/n8n-nodes-sarvamai
+npm install n8n-nodes-sarvamai
 ```
 
 ## 🔑 Credentials

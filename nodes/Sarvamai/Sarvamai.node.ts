@@ -1,5 +1,4 @@
 import { NodeConnectionTypes, type INodeType, type INodeTypeDescription } from 'n8n-workflow';
-import { companyDescription } from './resources/company';
 import { translationDescription } from './resources/translation';
 import { documentIntelligenceDescription } from './resources/documentIntelligence';
 import { speechToTextDescription } from './resources/speechToText';
@@ -90,7 +89,6 @@ export class Sarvamai implements INodeType {
 			...languageIdentificationDescription,
 			...textToSpeechResourceDescription,
 			...transliterationDescription,
-			...companyDescription,
 		],
 	};
 }
