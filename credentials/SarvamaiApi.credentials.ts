@@ -13,7 +13,7 @@ export class SarvamaiApi implements ICredentialType {
 	icon = { light: 'file:Sarvamai.svg', dark: 'file:Sarvamai.dark.svg' } as const;
 
 	// Link to your community node's README
-	documentationUrl = 'https://github.com/org/@follow-prince/-sarvamai?tab=readme-ov-file#credentials';
+	documentationUrl = 'https://github.com/follow-prince/n8n-nodes-sarvamai/blob/main/DOCUMENTATION.md';
 
 	properties: INodeProperties[] = [
 		{
