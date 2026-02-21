@@ -10,6 +10,9 @@
         "type": "git",
         "url": "https://github.com/follow-prince/n8n-nodes-sarvamai.git"
     },
+    "publishConfig": {
+        "access": "public"
+    },
     "scripts": {
         "build": "n8n-node build",
         "build:watch": "tsc --watch",
