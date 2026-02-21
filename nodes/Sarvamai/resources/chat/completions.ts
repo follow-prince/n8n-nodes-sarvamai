@@ -29,18 +29,12 @@ export const chatCompletionsDescription: INodeProperties[] = [
 						name: 'role',
 						type: 'options',
 						options: [
-							{
-								name: 'System',
-								value: 'system',
-							},
+						
 							{
 								name: 'User',
 								value: 'user',
-							},
-							{
-								name: 'Assistant',
-								value: 'assistant',
-							},
+								description: 'Input from the user that the model responds to',
+							}
 						],
 						default: 'user',
 					},
@@ -50,6 +44,7 @@ export const chatCompletionsDescription: INodeProperties[] = [
 						type: 'string',
 						default: '',
 						required: true,
+						description: 'The text content of the message',
 					},
 				],
 			},
@@ -63,11 +58,12 @@ export const chatCompletionsDescription: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Model',
+		displayName: 'Model Name or ID',
 		name: 'model',
 		type: 'options',
 		default: 'sarvam-m',
 		required: true,
+		description: 'The ID of the model to use for this request. Supported model(s): sarvam-m.',
 		displayOptions: {
 			show: showOnlyForCompletions,
 		},
@@ -81,6 +77,43 @@ export const chatCompletionsDescription: INodeProperties[] = [
 			send: {
 				type: 'body',
 				property: 'model',
+			},
+		},
+	},
+
+	{
+		displayName: 'Temperature',
+		name: 'temperature',
+		type: 'number',
+		typeOptions: {
+			minValue: 0,
+			maxValue: 2,
+		},
+		default: 0.2,
+		description: 'The sampling temperature to use, between 0 and 2. Higher values like 0.8 make output more random, while lower values like 0.2 make it more focused.',
+		displayOptions: {
+			show: showOnlyForCompletions,
+		},
+		routing: {
+			send: {
+				type: 'body',
+				property: 'temperature',
+			},
+		},
+	},
+	{
+		displayName: 'Wiki Grounding',
+		name: 'wiki_grounding',
+		type: 'boolean',
+		default: false,
+		description: 'Whether the model uses a RAG based approach to retrieve relevant chunks from Wikipedia and uses them to answer the question',
+		displayOptions: {
+			show: showOnlyForCompletions,
+		},
+		routing: {
+			send: {
+				type: 'body',
+				property: 'wiki_grounding',
 			},
 		},
 	},
@@ -103,7 +136,7 @@ export const chatCompletionsDescription: INodeProperties[] = [
 					maxValue: 2,
 				},
 				default: 0,
-				description: 'Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency.',
+				description: 'Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far.',
 			},
 			{
 				displayName: 'Max Tokens',
@@ -118,7 +151,6 @@ export const chatCompletionsDescription: INodeProperties[] = [
 				type: 'number',
 				typeOptions: {
 					minValue: 1,
-					maxValue: 128,
 				},
 				default: 1,
 				description: 'How many chat completion choices to generate for each input message',
@@ -153,6 +185,7 @@ export const chatCompletionsDescription: INodeProperties[] = [
 					},
 				],
 				default: 'medium',
+				description: 'The level of reasoning effort to use for the response',
 			},
 			{
 				displayName: 'Seed',
@@ -166,25 +199,14 @@ export const chatCompletionsDescription: INodeProperties[] = [
 				name: 'stop',
 				type: 'string',
 				default: '',
-				description: 'Up to 4 sequences where the API will stop generating further tokens',
+				description: 'Up to 4 sequences where the API will stop generating further tokens. You can provide a single string or an array of strings.',
 			},
 			{
 				displayName: 'Stream',
 				name: 'stream',
 				type: 'boolean',
 				default: false,
-				description: 'Whether to stream the model response as it is generated',
-			},
-			{
-				displayName: 'Temperature',
-				name: 'temperature',
-				type: 'number',
-				typeOptions: {
-					minValue: 0,
-					maxValue: 2,
-				},
-				default: 0.2,
-				description: 'What sampling temperature to use, between 0 and 2',
+				description: 'Whether the model response data will be streamed to the client as it is generated',
 			},
 			{
 				displayName: 'Top P',
@@ -195,14 +217,7 @@ export const chatCompletionsDescription: INodeProperties[] = [
 					maxValue: 1,
 				},
 				default: 1,
-				description: 'An alternative to sampling with temperature, called nucleus sampling',
-			},
-			{
-				displayName: 'Wiki Grounding',
-				name: 'wiki_grounding',
-				type: 'boolean',
-				default: false,
-				description: 'Whether the model uses a RAG based approach to retrieve relevant chunks from Wikipedia',
+				description: 'An alternative to sampling with temperature, called nucleus sampling. 0.1 means only tokens comprising the top 10% probability mass are considered.',
 			},
 		],
 		routing: {

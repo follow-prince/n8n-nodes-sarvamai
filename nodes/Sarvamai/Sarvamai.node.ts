@@ -43,10 +43,6 @@ export class Sarvamai implements INodeType {
 						value: 'chat',
 					},
 					{
-						name: 'Company',
-						value: 'company',
-					},
-					{
 						name: 'Document Intelligence',
 						value: 'documentIntelligence',
 					},
@@ -73,11 +69,7 @@ export class Sarvamai implements INodeType {
 					{
 						name: 'Transliteration',
 						value: 'transliteration',
-					},
-					{
-						name: 'User',
-						value: 'user',
-					},
+					}
 				],
 				default: 'translation',
 			},

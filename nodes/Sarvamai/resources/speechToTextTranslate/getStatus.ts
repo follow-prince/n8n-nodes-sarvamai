@@ -15,6 +15,6 @@ export const speechToTextTranslateGetStatusDescription: INodeProperties[] = [
 		displayOptions: {
 			show: showOnlyForGetStatus,
 		},
-		description: 'The UUID of the batch job to check status for',
+		description: 'The UUID of the batch job to check status for. Note: To prevent rate limit errors, we recommend a minimum 5-millisecond delay between consecutive status polling requests.',
 	},
 ];

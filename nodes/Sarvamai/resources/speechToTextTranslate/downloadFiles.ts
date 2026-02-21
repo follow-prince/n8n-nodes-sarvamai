@@ -15,11 +15,27 @@ export const speechToTextTranslateDownloadResultsDescription: INodeProperties[] 
 		displayOptions: {
 			show: showOnlyForDownloadResults,
 		},
-		description: 'The UUID of the batch job',
+		description: 'The UUID of the completed speech to text translate bulk job',
 		routing: {
 			send: {
 				type: 'body',
 				property: 'job_id',
+			},
+		},
+	},
+	{
+		displayName: 'PTU ID',
+		name: 'ptu_id',
+		type: 'number',
+		default: undefined,
+		displayOptions: {
+			show: showOnlyForDownloadResults,
+		},
+		description: 'Optional Provisioned Throughput unit ID to use for the request',
+		routing: {
+			send: {
+				type: 'query',
+				property: 'ptu_id',
 			},
 		},
 	},
@@ -36,6 +52,7 @@ export const speechToTextTranslateDownloadResultsDescription: INodeProperties[] 
 		displayOptions: {
 			show: showOnlyForDownloadResults,
 		},
+		description: 'A list of audio filenames to generate presigned download URLs for. These should be the names of the translated transcription output files.',
 		options: [
 			{
 				displayName: 'File',

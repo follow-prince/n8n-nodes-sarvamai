@@ -15,6 +15,6 @@ export const documentIntelligenceGetStatusDescription: INodeProperties[] = [
 		displayOptions: {
 			show: showOnlyForGetStatus,
 		},
-		description: 'The unique identifier for the document digitization job',
+		description: 'The unique identifier for the job. Returns the current status with detailed page-level metrics. States: Accepted, Pending, Running, Completed, PartiallyCompleted, Failed.',
 	},
 ];

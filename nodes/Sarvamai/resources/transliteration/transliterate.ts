@@ -35,7 +35,7 @@ export const transliterationTransliterateDescription: INodeProperties[] = [
 		displayOptions: {
 			show: showOnlyForTransliterate,
 		},
-		description: 'The text you want to transliterate',
+		description: 'The text you want to transliterate (convert from one script to another phonetically)',
 		routing: {
 			send: {
 				type: 'body',
@@ -44,7 +44,7 @@ export const transliterationTransliterateDescription: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Source Language Code',
+		displayName: 'Source Language',
 		name: 'source_language_code',
 		type: 'options',
 		options: transliterationLanguages,
@@ -53,7 +53,7 @@ export const transliterationTransliterateDescription: INodeProperties[] = [
 		displayOptions: {
 			show: showOnlyForTransliterate,
 		},
-		description: 'The language code of the input text',
+		description: 'The language of the input text. Supports Indic languages and English for bidirectional conversion.',
 		routing: {
 			send: {
 				type: 'body',
@@ -62,7 +62,7 @@ export const transliterationTransliterateDescription: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Target Language Code',
+		displayName: 'Target Language',
 		name: 'target_language_code',
 		type: 'options',
 		options: targetTransliterationLanguages,
@@ -71,7 +71,7 @@ export const transliterationTransliterateDescription: INodeProperties[] = [
 		displayOptions: {
 			show: showOnlyForTransliterate,
 		},
-		description: 'The language code of the transliteration text',
+		description: 'The language/script you want to convert the text into',
 		routing: {
 			send: {
 				type: 'body',
@@ -84,14 +84,14 @@ export const transliterationTransliterateDescription: INodeProperties[] = [
 		name: 'numerals_format',
 		type: 'options',
 		options: [
-			{ name: 'International (0-9)', value: 'international' },
-			{ name: 'Native', value: 'native' },
+			{ name: 'International (0-9)', value: 'international', description: 'Use Western Arabic numerals' },
+			{ name: 'Native', value: 'native', description: 'Use language-specific native numerals' },
 		],
 		default: 'international',
 		displayOptions: {
 			show: showOnlyForTransliterate,
 		},
-		description: 'Controls whether to use regular or language-specific native numerals',
+		description: 'Controls whether to use standard (0-9) or language-specific native numerals in the output',
 		routing: {
 			send: {
 				type: 'body',
@@ -107,7 +107,7 @@ export const transliterationTransliterateDescription: INodeProperties[] = [
 		displayOptions: {
 			show: showOnlyForTransliterate,
 		},
-		description: 'Whether to convert text into a natural spoken form',
+		description: 'Whether to convert symbols (like ₹) and numbers into their phonetic spoken equivalents (e.g., "Two Hundred Rupees"). Note: This has no effect if output language is English.',
 		routing: {
 			send: {
 				type: 'body',
@@ -120,8 +120,8 @@ export const transliterationTransliterateDescription: INodeProperties[] = [
 		name: 'spoken_form_numerals_language',
 		type: 'options',
 		options: [
-			{ name: 'English', value: 'english' },
-			{ name: 'Native', value: 'native' },
+			{ name: 'Native (Default)', value: 'native', description: 'Numbers will be spoken in the native language' },
+			{ name: 'English', value: 'english', description: 'Numbers in the text will be spoken in English' },
 		],
 		default: 'native',
 		displayOptions: {
@@ -130,7 +130,7 @@ export const transliterationTransliterateDescription: INodeProperties[] = [
 				spoken_form: [true],
 			},
 		},
-		description: 'Specifies the language in which numbers will be spoken when spoken form is true',
+		description: 'The language used for phonetic representation of numbers. Only applicable when "Spoken Form" is enabled.',
 		routing: {
 			send: {
 				type: 'body',

@@ -15,7 +15,7 @@ export const speechToTextDownloadResultsDescription: INodeProperties[] = [
 		displayOptions: {
 			show: showOnlyForDownloadResults,
 		},
-		description: 'The UUID of the batch job',
+		description: 'The UUID of the completed speech to text bulk job',
 		routing: {
 			send: {
 				type: 'body',
@@ -36,6 +36,7 @@ export const speechToTextDownloadResultsDescription: INodeProperties[] = [
 		displayOptions: {
 			show: showOnlyForDownloadResults,
 		},
+		description: 'A list of audio filenames to generate presigned download URLs for. These should be the names of the transcription output files.',
 		options: [
 			{
 				displayName: 'File',

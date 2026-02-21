@@ -11,7 +11,7 @@ const showForMayuraV1 = {
 };
 
 const languageOptions = [
-	{ name: 'Auto Detect (mayura:V1 Only)', value: 'auto' },
+	{ name: 'Auto Detect (Mayura Only)', value: 'auto' },
 	{ name: 'Assamese (as-IN)', value: 'as-IN' },
 	{ name: 'Bengali (Bn-IN)', value: 'bn-IN' },
 	{ name: 'Bodo (Brx-IN)', value: 'brx-IN' },
@@ -42,6 +42,32 @@ const targetLanguageOptions = languageOptions.filter((l) => l.value !== 'auto');
 export const translationTranslateDescription: INodeProperties[] = [
 	// ── Required fields ──────────────────────────────────────────────────────
 	{
+		displayName: 'Model',
+		name: 'model',
+		type: 'options',
+		default: 'mayura:v1',
+		displayOptions: { show: showOnlyForTranslate },
+		options: [
+			{
+				name: 'Mayura V1 (12 Languages, All Modes, Auto-Detect)',
+				value: 'mayura:v1',
+				description: 'Supports Bengali, English, Gujarati, Hindi, Kannada, Malayalam, Marathi, Odia, Punjabi, Tamil, Telugu',
+			},
+			{
+				name: 'Sarvam Translate V1 (22 Languages, Formal Only)',
+				value: 'sarvam-translate:v1',
+				description: 'Supports all 22 scheduled languages of India (Formal mode only)',
+			},
+		],
+		description: 'The translation model to use. Choose based on language support and features required.',
+		routing: {
+			send: {
+				type: 'body',
+				property: 'model',
+			},
+		},
+	},
+	{
 		displayName: 'Input Text',
 		name: 'input',
 		type: 'string',
@@ -52,7 +78,7 @@ export const translationTranslateDescription: INodeProperties[] = [
 		required: true,
 		displayOptions: { show: showOnlyForTranslate },
 		description:
-			'The text to translate. Max 1 000 characters for mayura:v1 and 2 000 characters for sarvam-translate:v1.',
+			'The text you want to translate. Maximum 1000 characters for Mayura:v1 and 2000 characters for Sarvam-Translate:v1.',
 		routing: {
 			send: {
 				type: 'body',
@@ -69,7 +95,7 @@ export const translationTranslateDescription: INodeProperties[] = [
 		displayOptions: { show: showOnlyForTranslate },
 		options: languageOptions,
 		description:
-			'Source language of the input text. Use "Auto Detect" for automatic detection (mayura:v1 only).',
+			'The language of the input text. Choose "Auto Detect" if using Mayura:v1 and you want the API to identify the language.',
 		routing: {
 			send: {
 				type: 'body',
@@ -85,7 +111,7 @@ export const translationTranslateDescription: INodeProperties[] = [
 		required: true,
 		displayOptions: { show: showOnlyForTranslate },
 		options: targetLanguageOptions,
-		description: 'The language the text should be translated into',
+		description: 'The language you want the text to be translated into',
 		routing: {
 			send: {
 				type: 'body',
@@ -95,30 +121,6 @@ export const translationTranslateDescription: INodeProperties[] = [
 	},
 
 	// ── Optional fields ───────────────────────────────────────────────────────
-	{
-		displayName: 'Model',
-		name: 'model',
-		type: 'options',
-		default: 'mayura:v1',
-		displayOptions: { show: showOnlyForTranslate },
-		options: [
-			{
-				name: 'Mayura V1 (12 Languages, All Modes, Auto-Detect)',
-				value: 'mayura:v1',
-			},
-			{
-				name: 'Sarvam Translate V1 (22 Languages, Formal Only)',
-				value: 'sarvam-translate:v1',
-			},
-		],
-		description: 'The translation model to use',
-		routing: {
-			send: {
-				type: 'body',
-				property: 'model',
-			},
-		},
-	},
 	{
 		displayName: 'Speaker Gender',
 		name: 'speaker_gender',
@@ -130,7 +132,7 @@ export const translationTranslateDescription: INodeProperties[] = [
 			{ name: 'Male', value: 'Male' },
 			{ name: 'Female', value: 'Female' },
 		],
-		description: 'Gender of the speaker for better translations',
+		description: 'Specify the gender of the speaker for more accurate contextual translation',
 		routing: {
 			send: {
 				type: 'body',
@@ -149,29 +151,29 @@ export const translationTranslateDescription: INodeProperties[] = [
 			{
 				name: 'Formal',
 				value: 'formal',
-				description: 'Supported by both models',
+				description: 'Standard formal language style',
 			},
 			{
 				name: 'Modern Colloquial',
 				value: 'modern-colloquial',
 				displayOptions: { show: showForMayuraV1 },
-				description: 'Mayura:v1 only',
+				description: 'Modern everyday conversational style (Mayura:v1 only)',
 			},
 			{
 				name: 'Classic Colloquial',
 				value: 'classic-colloquial',
 				displayOptions: { show: showForMayuraV1 },
-				description: 'Mayura:v1 only',
+				description: 'Traditional conversational style (Mayura:v1 only)',
 			},
 			{
 				name: 'Code Mixed',
 				value: 'code-mixed',
 				displayOptions: { show: showForMayuraV1 },
-				description: 'Mayura:v1 only',
+				description: 'Mixing multiple languages in the same sentence (Mayura:v1 only)',
 			},
 		],
 		description:
-			'Tone/style of the translation. Only "Formal" is supported for sarvam-translate:v1.',
+			'Determines the tone or style of the translation. Note: Sarvam-Translate:v1 only supports Formal mode.',
 		routing: {
 			send: {
 				type: 'body',
@@ -180,7 +182,7 @@ export const translationTranslateDescription: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Output Script',
+		displayName: 'Output Script (Transliteration)',
 		name: 'output_script',
 		type: 'options',
 		default: 'null',
@@ -189,26 +191,26 @@ export const translationTranslateDescription: INodeProperties[] = [
 			{
 				name: 'None (Default)',
 				value: 'null',
-				description: 'No transliteration applied',
+				description: 'No transliteration applied to the output',
 			},
 			{
 				name: 'Roman',
 				value: 'roman',
-				description: 'Output in romanized script',
+				description: 'Output text in Romanized (Latin) script',
 			},
 			{
 				name: 'Fully Native',
 				value: 'fully-native',
-				description: 'Native script with formal style',
+				description: 'Output in the native script with a formal style',
 			},
 			{
 				name: 'Spoken Form in Native',
 				value: 'spoken-form-in-native',
-				description: 'Native script with spoken style',
+				description: 'Output in the native script with a spoken style',
 			},
 		],
 		description:
-			'Controls transliteration style of the output. Only supported for mayura:v1.',
+			'Controls the transliteration style applied to the output. Useful for reading native scripts in Romanized form. Only supported for Mayura:v1.',
 		routing: {
 			send: {
 				type: 'body',
@@ -227,13 +229,15 @@ export const translationTranslateDescription: INodeProperties[] = [
 			{
 				name: 'International (0–9)',
 				value: 'international',
+				description: 'Use standard Western Arabic numerals',
 			},
 			{
 				name: 'Native (Language-Specific Numerals)',
 				value: 'native',
+				description: 'Use language-specific native numerals (e.g., ९ instead of 9)',
 			},
 		],
-		description: 'Controls whether to use standard or language-specific native numerals',
+		description: 'Choose whether to use international numerals or language-specific native numerals in the translation',
 		routing: {
 			send: {
 				type: 'body',

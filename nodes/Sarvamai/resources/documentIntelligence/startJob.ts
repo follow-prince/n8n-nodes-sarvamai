@@ -15,6 +15,6 @@ export const documentIntelligenceStartJobDescription: INodeProperties[] = [
 		displayOptions: {
 			show: showOnlyForStartJob,
 		},
-		description: 'The unique identifier for the document digitization job',
+		description: 'The unique identifier for the job. Starts processing after validating file (max 200MB, 500 pages).',
 	},
 ];

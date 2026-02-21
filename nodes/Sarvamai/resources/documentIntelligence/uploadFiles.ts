@@ -24,39 +24,20 @@ export const documentIntelligenceUploadFilesDescription: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Files',
-		name: 'files',
-		type: 'fixedCollection',
-		typeOptions: {
-			multipleValues: false,
-		},
-		default: {},
+		displayName: 'Filename',
+		name: 'filename',
+		type: 'string',
+		default: '',
 		required: true,
 		displayOptions: {
 			show: showOnlyForUploadFiles,
 		},
-		options: [
-			{
-				displayName: 'File List',
-				name: 'fileList',
-				values: [
-					{
-						displayName: 'Filename',
-						name: 'filename',
-						type: 'string',
-						default: '',
-						required: true,
-						description: 'The name of the file to upload (must be a .pdf or .zip)',
-					},
-				],
-			},
-		],
-		description: 'The list of files to be uploaded. Exactly one file is required (PDF or ZIP).',
+		description: 'The name of the file to upload (must be a .pdf or .zip)',
 		routing: {
 			send: {
 				type: 'body',
 				property: 'files',
-				value: '={{[$value.fileList.filename]}}',
+				value: '={{[$value]}}',
 			},
 		},
 	},

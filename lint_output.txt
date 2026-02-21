@@ -1,0 +1,22 @@
+
+> n8n-nodes-sarvamai@0.2.2 lint
+> n8n-node lint
+
+┌   n8n-node lint  v0.20.0
+[0m[0m
+[0m[4m/home/prince/Downloads/N8N-Node/n8n-nodes-sarvamai/nodes/Sarvamai/resources/speechToText/initiateJob.ts[24m[0m
+[0m  [2m36:3[22m  [31merror[39m  Alphabetize by 'name'. Order: Auto Detect | Bengali | English | Gujarati | Hindi | Kannada | Malayalam | Marathi | Odia | Punjabi | Tamil | Telugu [autofixable]  [2mn8n-nodes-base/node-param-options-type-unsorted-items[22m[0m
+[0m[0m
+[0m[4m/home/prince/Downloads/N8N-Node/n8n-nodes-sarvamai/nodes/Sarvamai/resources/speechToText/transcribe.ts[24m[0m
+[0m   [2m98:3[22m  [31merror[39m  Alphabetize by 'name'. Order: Codemix | Transcribe | Translate | Translit | Verbatim [autofixable]                                                                                                                                                                                                      [2mn8n-nodes-base/node-param-options-type-unsorted-items[22m[0m
+[0m  [2m183:3[22m  [31merror[39m  Alphabetize by 'name'. Order: AAC | AAC (Alias) | AIFF | AIFF (Alias) | AMR | FLAC | FLAC (Alias) | MP3 | MP3 (mpeg) | MP3 (mpeg3) | MP3 (x-mp3) | MP3 (x-mpeg-3) | MP4/M4A | MP4/M4A (Alias) | OGG | Opus | PCM L16 | PCM Raw | PCM S16LE | WAV | WAV (wave) | WAV (x-wav) | WebM | WMA [autofixable]  [2mn8n-nodes-base/node-param-options-type-unsorted-items[22m[0m
+[0m  [2m192:6[22m  [31merror[39m  Change to title case [autofixable]                                                                                                                                                                                                                                                                      [2mn8n-nodes-base/node-param-display-name-miscased[22m[0m
+[0m  [2m193:6[22m  [31merror[39m  Change to title case [autofixable]                                                                                                                                                                                                                                                                      [2mn8n-nodes-base/node-param-display-name-miscased[22m[0m
+[0m  [2m194:6[22m  [31merror[39m  Change to title case [autofixable]                                                                                                                                                                                                                                                                      [2mn8n-nodes-base/node-param-display-name-miscased[22m[0m
+[0m  [2m195:6[22m  [31merror[39m  Change to title case [autofixable]                                                                                                                                                                                                                                                                      [2mn8n-nodes-base/node-param-display-name-miscased[22m[0m
+[0m  [2m204:6[22m  [31merror[39m  Change to title case [autofixable]                                                                                                                                                                                                                                                                      [2mn8n-nodes-base/node-param-display-name-miscased[22m[0m
+[0m  [2m205:6[22m  [31merror[39m  Change to title case [autofixable]                                                                                                                                                                                                                                                                      [2mn8n-nodes-base/node-param-display-name-miscased[22m[0m
+[0m[0m
+[0m[31m[1m✖ 9 problems (9 errors, 0 warnings)[22m[39m[0m
+[0m[31m[1m[22m[39m[31m[1m  6 errors and 0 warnings potentially fixable with the `--fix` option.[22m[39m[0m
+[0m[31m[1m[22m[39m[0m

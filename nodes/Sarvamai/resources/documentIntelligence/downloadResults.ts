@@ -15,6 +15,6 @@ export const documentIntelligenceDownloadResultsDescription: INodeProperties[] =
 		displayOptions: {
 			show: showOnlyForDownloadResults,
 		},
-		description: 'The unique identifier for the document digitization job',
+		description: 'The unique identifier for the job. Returns presigned URLs for downloading output files. Job must be in Completed or PartiallyCompleted state.',
 	},
 ];

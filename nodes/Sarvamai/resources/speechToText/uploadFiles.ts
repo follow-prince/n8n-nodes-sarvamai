@@ -15,7 +15,7 @@ export const speechToTextUploadFilesDescription: INodeProperties[] = [
 		displayOptions: {
 			show: showOnlyForUploadFiles,
 		},
-		description: 'The UUID of the batch job',
+		description: 'The UUID of the batch job (obtained from Initiate Job). Use this to upload audio files for processing. Note: All files must be uploaded before starting the job.',
 		routing: {
 			send: {
 				type: 'body',
@@ -36,6 +36,7 @@ export const speechToTextUploadFilesDescription: INodeProperties[] = [
 		displayOptions: {
 			show: showOnlyForUploadFiles,
 		},
+		description: 'A list of audio filenames to generate presigned upload URLs for. Supported formats: WAV, MP3, AAC, AIFF, OGG, OPUS, FLAC, MP4/M4A, AMR, WMA, WebM.',
 		options: [
 			{
 				displayName: 'File',

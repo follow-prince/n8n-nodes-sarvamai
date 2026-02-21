@@ -24,7 +24,7 @@ export const speechToTextTranslateDescription: INodeProperties[] = [
 				name: 'Download Results (Batch)',
 				value: 'downloadResults',
 				action: 'Download results for a batch job',
-				description: 'Generate presigned download URLs for translated transcription output files',
+				description: 'Generate presigned download URLs for translated transcription output files. Use this after the job is completed.',
 				routing: {
 					request: {
 						method: 'POST',
@@ -36,7 +36,7 @@ export const speechToTextTranslateDescription: INodeProperties[] = [
 				name: 'Get Status (Batch)',
 				value: 'getStatus',
 				action: 'Get job status',
-				description: 'Retrieve the current status and details of a speech to text translate bulk job',
+				description: 'Retrieve the current status and details of a speech to text translate bulk job. Note: We recommend a minimum 5-millisecond delay between consecutive status polling requests.',
 				routing: {
 					request: {
 						method: 'GET',
@@ -48,7 +48,7 @@ export const speechToTextTranslateDescription: INodeProperties[] = [
 				name: 'Initiate Job (Batch)',
 				value: 'initiateJob',
 				action: 'Initiate a batch job',
-				description: 'Create a new speech to text translate bulk job',
+				description: 'Create a new speech to text translate bulk job. Returns a Job ID needed for subsequent steps.',
 				routing: {
 					request: {
 						method: 'POST',
@@ -60,7 +60,7 @@ export const speechToTextTranslateDescription: INodeProperties[] = [
 				name: 'Start Job (Batch)',
 				value: 'startJob',
 				action: 'Start a batch job',
-				description: 'Trigger the processing of a batch job',
+				description: 'Trigger the processing of a batch job after all audio files have been uploaded',
 				routing: {
 					request: {
 						method: 'POST',
@@ -72,7 +72,7 @@ export const speechToTextTranslateDescription: INodeProperties[] = [
 				name: 'Transcribe',
 				value: 'transcribe',
 				action: 'Transcribe and translate audio',
-				description: 'Automatically detects language, transcribes speech, and translates to English',
+				description: 'Automatically detects language, transcribes speech, and translates to English. For long audio, use Batch operations.',
 				routing: {
 					request: {
 						method: 'POST',
@@ -93,7 +93,7 @@ export const speechToTextTranslateDescription: INodeProperties[] = [
 				name: 'Upload Files (Batch)',
 				value: 'uploadFiles',
 				action: 'Upload files for a batch job',
-				description: 'Generate presigned upload URLs for audio files',
+				description: 'Generate presigned upload URLs for audio files. Use the Job ID from Initiate Job.',
 				routing: {
 					request: {
 						method: 'POST',
