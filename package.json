@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-sarvamai",
-  "version": "0.1.6",
+  "version": "0.2.0",
   "description": "n8n community node for Sarvam AI",
   "license": "MIT",
   "homepage": "https://github.com/follow-prince/n8n-nodes-sarvamai",
@@ -11,7 +11,7 @@
     "n8n-nodes-sarvamai-api"
   ],
   "author": {
-    "name": "ELavarasan (Prince)",
+    "name": "Elavarasan (Prince)",
     "email": "[EMAIL_ADDRESS]"
   },
   "repository": {
