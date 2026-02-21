@@ -1,4 +1,5 @@
 # n8n-nodes-sarvamai
+[![Publish to npm (pnpm)](https://github.com/follow-prince/n8n-nodes-sarvamai/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/follow-prince/n8n-nodes-sarvamai/actions/workflows/ci.yml)
 
 This is an n8n community node that allows you to interact with **Sarvam AI**, India's leading AI company. Build powerful workflows with Indian language support including Translation, Speech-to-Text, LLM Chat, and more.
 
